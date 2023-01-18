@@ -1,0 +1,82 @@
+[
+  {
+    "avatar": "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+    "title": "Brunch this weekend?",
+    "subtitle": "<span class='text-body-1'>Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
+    "address": "123 Main St, New York, NY 10001",
+    "country": "usa",
+    "score": "5"
+  },
+  {
+    "avatar": "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+    "title": "Summer BBQ <span class='text-medium-emphasis'>4</span>",
+    "subtitle": "<span class='text-body-1'>to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.",
+    "address": "576 5th Ave, New York, NY 10036",
+    "country": "china",
+    "score": "21"
+  },
+  {
+    "avatar": "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+    "title": "Oui oui",
+    "subtitle": "<span class='text-body-1'>Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?",
+    "address": "789 Sexton St, New York, NY 10001",
+    "country": "russia",
+    "score": "15"
+  },
+  {
+    "avatar": "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+    "title": "Birthday gift",
+    "subtitle": "<span class='text-body-1'>Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?",
+    "address": "123 Main St, New York, NY 10001",
+    "country": "india",
+    "score": "4"
+  },
+  {
+    "avatar": "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+    "title": "Recipe to try",
+    "subtitle": "<span class='text-body-1'>Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.",
+    "address": "123 Main St, New York, NY 10001",
+    "country": "germany",
+    "score": "30"
+  },
+  {
+    "avatar": "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+    "title": "Brunch this weekend?",
+    "subtitle": "<span class='text-body-1'>Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
+    "address": "123 Main St, New York, NY 10001",
+    "country": "russia",
+    "score": "7"
+  },
+  {
+    "avatar": "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+    "title": "Summer BBQ <span class='text-medium-emphasis'>4</span>",
+    "subtitle": "<span class='text-body-1'>to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.",
+    "address": "576 5th Ave, New York, NY 10036",
+    "country": "russia",
+    "score": "11"
+  },
+  {
+    "avatar": "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+    "title": "Oui oui",
+    "subtitle": "<span class='text-body-1'>Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?",
+    "address": "789 Sexton St, New York, NY 10001",
+    "country": "russia",
+    "score": "17"
+  },
+  {
+    "avatar": "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+    "title": "Birthday gift",
+    "subtitle": "<span class='text-body-1'>Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?",
+    "address": "123 Main St, New York, NY 10001",
+    "country": "russia",
+    "score": "2"
+  },
+  {
+    "avatar": "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+    "title": "Recipe to try",
+    "subtitle": "<span class='text-body-1'>Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.",
+    "address": "123 Main St, New York, NY 10001",
+    "country": "russia",
+    "score": "25"
+  }
+]
