@@ -4,5 +4,5 @@ export interface UserDetails {
   subtitle: string;
   address: string;
   country: string;
-  score: string;
+  score: number;
 }

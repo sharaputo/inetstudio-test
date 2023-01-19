@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ref, computed, onMounted } from "vue";
+import { ref, reactive, computed, onMounted } from "vue";
 import { fetchUsers } from "@/api/mock";
 import { getUniqueValues } from "@/composables/getUniqueValues";
 import type { UserDetails } from "@/types/UserDetails";
@@ -19,22 +19,39 @@ export default defineStore("users", () => {
   });
 
   const filteredUsers = ref<UserDetails[]>();
+  const filters = reactive({ country: "", score: 0 });
+  const setFilters = (value: string): void => {
+    if (value === "> 20" || value === "< 10") {
+      filters.score = value === "> 20" ? 2 : 1;
+    } else {
+      filters.country = value;
+    }
+  };
   const filterUsers = (value: string): void => {
     filteredUsers.value = users.value;
 
-    switch (value) {
-      case "> 20":
-        filteredUsers.value = users.value.filter((user) => +user.score > 20); // falls through
-      case "< 10":
-        filteredUsers.value = users.value.filter((user) => +user.score < 10); // falls through
-      default:
-        filteredUsers.value = users.value.filter(
-          (user) => user.country === value
-        );
-    }
+    setFilters(value);
+
+    filteredUsers.value = users.value.filter((user) => {
+      if (filters.country && !filters.score) {
+        return user.country === filters.country;
+      } else if (filters.country && filters.score === 1) {
+        return user.country === filters.country && user.score < 10;
+      } else if (filters.country && filters.score === 2) {
+        return user.country === filters.country && user.score > 20;
+      } else if (!filters.country && filters.score === 1) {
+        return user.score < 10;
+      } else if (!filters.country && filters.score === 2) {
+        return user.score > 20;
+      }
+    });
+
+    console.log(filters);
   };
 
   const resetFilterdUsers = () => {
+    filters.country = "";
+    filters.score = 0;
     filteredUsers.value = users.value;
   };
 
