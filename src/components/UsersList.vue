@@ -36,8 +36,10 @@
 </template>
 
 <script setup lang="ts">
+import type { UserDetails } from "@/types/UserDetails";
+
 interface Props {
-  users: any;
+  users: UserDetails[];
 }
 
 defineProps<Props>();
