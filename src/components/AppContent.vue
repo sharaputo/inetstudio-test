@@ -17,6 +17,12 @@
             <v-progress-circular color="primary" indeterminate size="70" />
           </v-col>
 
+          <v-col cols="12" v-else-if="!usersStore.usersList.length">
+            <p class="text-h6 text-center">
+              Sorry, nothing to match the criteria! Try reseting filters.
+            </p>
+          </v-col>
+
           <UsersList :users="usersStore.usersList" v-else />
         </v-row>
       </v-col>
