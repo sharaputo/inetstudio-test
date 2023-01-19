@@ -29,6 +29,7 @@ export default defineStore("users", () => {
   };
   const filterUsers = (value: string): void => {
     filteredUsers.value = users.value;
+    isLoading.value = true;
 
     setFilters(value);
 
@@ -46,7 +47,7 @@ export default defineStore("users", () => {
       }
     });
 
-    console.log(filters);
+    isLoading.value = false;
   };
 
   const resetFilterdUsers = () => {
