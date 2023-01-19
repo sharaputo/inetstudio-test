@@ -1,8 +1,9 @@
 import { defineStore } from "pinia";
-import { ref, reactive, computed, onMounted } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { fetchUsers } from "@/api/mock";
 import { getUniqueValues } from "@/composables/getUniqueValues";
 import type { UserDetails } from "@/types/UserDetails";
+import type { FilterExpression } from "@/types/FilterExpression";
 
 export default defineStore("users", () => {
   const isLoading = ref(false);
@@ -19,40 +20,33 @@ export default defineStore("users", () => {
   });
 
   const filteredUsers = ref<UserDetails[]>();
-  const filters = reactive({ country: "", score: 0 });
-  const setFilters = (value: string): void => {
-    if (value === "> 20" || value === "< 10") {
-      filters.score = value === "> 20" ? 2 : 1;
-    } else {
-      filters.country = value;
+  const evaluateFiltersArray = (
+    filterExpression: FilterExpression,
+    object: UserDetails
+  ): boolean => {
+    const { key, operation, value } = filterExpression;
+    const propValue = object[key];
+    switch (operation) {
+      case "greater_than":
+        return propValue > value;
+      case "less_than":
+        return propValue < value;
+      case "contains":
+        return new RegExp(value + "").test(propValue + "");
     }
   };
-  const filterUsers = (value: string): void => {
+  const filterUsers = (filtersArray: FilterExpression[]): void => {
     filteredUsers.value = users.value;
     isLoading.value = true;
 
-    setFilters(value);
-
-    filteredUsers.value = users.value.filter((user) => {
-      if (filters.country && !filters.score) {
-        return user.country === filters.country;
-      } else if (filters.country && filters.score === 1) {
-        return user.country === filters.country && user.score < 10;
-      } else if (filters.country && filters.score === 2) {
-        return user.country === filters.country && user.score > 20;
-      } else if (!filters.country && filters.score === 1) {
-        return user.score < 10;
-      } else if (!filters.country && filters.score === 2) {
-        return user.score > 20;
-      }
+    filteredUsers.value = filteredUsers.value.filter((user) => {
+      return filtersArray.every((array) => evaluateFiltersArray(array, user));
     });
 
     isLoading.value = false;
   };
 
   const resetFilterdUsers = () => {
-    filters.country = "";
-    filters.score = 0;
     filteredUsers.value = users.value;
   };
 
